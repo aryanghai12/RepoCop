@@ -1,0 +1,26 @@
+{
+  "action": "opened",
+  "number": 7,
+  "pull_request": {
+    "number": 7,
+    "title": "chore(deps): bump lodash from 4.17.20 to 4.17.21",
+    "body": "Bumps [lodash](https://github.com/lodash/lodash) from 4.17.20 to 4.17.21.\n\n---\n\nUpdated by Dependabot.",
+    "state": "open",
+    "draft": false,
+    "head": { "ref": "dependabot/npm_and_yarn/lodash-4.17.21", "sha": "deadbeef0001" },
+    "base": { "ref": "main" },
+    "user": { "login": "dependabot[bot]", "type": "Bot" },
+    "additions": 1,
+    "deletions": 1,
+    "changed_files": 1
+  },
+  "repository": {
+    "id": 123456789,
+    "name": "hello-world",
+    "full_name": "octocat/hello-world",
+    "owner": { "login": "octocat" },
+    "default_branch": "main"
+  },
+  "installation": { "id": 999 },
+  "sender": { "login": "dependabot[bot]", "type": "Bot" }
+}

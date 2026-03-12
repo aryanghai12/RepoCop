@@ -32,6 +32,8 @@ const envSchema = z.object({
 
 export type Env = z.infer<typeof envSchema>;
 
+let cachedEnv: Env | null = null;
+
 function validateEnv(): Env {
   const result = envSchema.safeParse(process.env);
 
@@ -49,5 +51,33 @@ function validateEnv(): Env {
   return result.data;
 }
 
-// Singleton — validated once on first import, throws at startup if invalid.
-export const env = validateEnv();
+export function getEnv(): Env {
+  if (cachedEnv) {
+    return cachedEnv;
+  }
+
+  cachedEnv = validateEnv();
+  return cachedEnv;
+}
+
+// Lazy proxy so modules can import `env` without forcing validation during
+// Next.js build-time module evaluation. Validation still happens on first use.
+export const env = new Proxy({} as Env, {
+  get(_target, prop) {
+    return getEnv()[prop as keyof Env];
+  },
+  has(_target, prop) {
+    return prop in getEnv();
+  },
+  ownKeys() {
+    return Reflect.ownKeys(getEnv());
+  },
+  getOwnPropertyDescriptor(_target, prop) {
+    return {
+      configurable: true,
+      enumerable: true,
+      value: getEnv()[prop as keyof Env],
+      writable: false,
+    };
+  },
+});

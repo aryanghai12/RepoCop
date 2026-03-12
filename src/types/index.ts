@@ -48,6 +48,27 @@ export type CostGateOutcome =
   | { action: "pass" }
   | { action: "reject"; reason: string };
 
+// ── Context ──────────────────────────────────────────────────────────────────
+
+import type { PrFile } from "@/src/lib/github/pr";
+
+/**
+ * All data fetched for a pull request, assembled by the context-ingestion
+ * stage and passed unchanged to every downstream pipeline stage.
+ */
+export interface PrContext {
+  owner: string;
+  repo: string;
+  prNumber: number;
+  title: string;
+  body: string | null;
+  diff: string;
+  files: PrFile[];
+  comments: string[];
+  /** Contents of CONTRIBUTING.md, or null if the file does not exist. */
+  contributingMd: string | null;
+}
+
 // ── Labels ────────────────────────────────────────────────────────────────────
 
 export type RepocopLabel =
