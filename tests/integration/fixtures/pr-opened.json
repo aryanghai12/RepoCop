@@ -1,0 +1,26 @@
+{
+  "action": "opened",
+  "number": 42,
+  "pull_request": {
+    "number": 42,
+    "title": "feat: add user authentication flow",
+    "body": "## Summary\n\nThis PR introduces JWT-based authentication.\n\n## Changes\n- Add login endpoint\n- Add token refresh logic\n- Add unit tests\n\n## Testing\nAll existing tests pass. New tests cover the happy path and token expiry.",
+    "state": "open",
+    "draft": false,
+    "head": { "ref": "feat/user-auth", "sha": "abc123def456" },
+    "base": { "ref": "main" },
+    "user": { "login": "octocat", "type": "User" },
+    "additions": 120,
+    "deletions": 15,
+    "changed_files": 6
+  },
+  "repository": {
+    "id": 123456789,
+    "name": "hello-world",
+    "full_name": "octocat/hello-world",
+    "owner": { "login": "octocat" },
+    "default_branch": "main"
+  },
+  "installation": { "id": 999 },
+  "sender": { "login": "octocat", "type": "User" }
+}
