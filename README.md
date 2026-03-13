@@ -397,7 +397,7 @@ RepoCop is designed to deploy to **Vercel** with zero configuration.
 ## Roadmap
 
 - [x] **Phase 1** — Foundation & Security (HMAC verification, env validation, webhook ingestion)
-- [ ] **Phase 2** — GitHub Client & PR Context Ingestion
+- [x] **Phase 2** — GitHub Client & PR Context Ingestion
 - [ ] **Phase 3** — Cost Gate: Pre-flight Validator
 - [ ] **Phase 4** — AI Router with Provider Failover
 - [ ] **Phase 5** — Semantic Compliance Analysis
